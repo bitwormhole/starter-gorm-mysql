@@ -1,0 +1,8 @@
+github.com/bitwormhole/starter v0.0.0-20210523115635-887cc289d62c/go.mod h1:Mv2MC4cWHU2eUs4793mL7pXL79pmjp1HJyA9bV8ZVMc=
+github.com/bitwormhole/starter-gorm v0.0.2/go.mod h1:gC4qfsRObkZOvL1bdEonAnogBFw1l2YMw0vhbrgSKzU=
+github.com/go-sql-driver/mysql v1.6.0/go.mod h1:DCzpHaOWr8IXmIStZouvnhqoel9Qv2LBy8hT2VhHyBg=
+github.com/jinzhu/inflection v1.0.0/go.mod h1:h+uFLlag+Qp1Va5pdKtLDYj+kHp5pxUVkryuEj+Srlc=
+github.com/jinzhu/now v1.1.2/go.mod h1:d3SSVoowX0Lcu0IBviAWJpolVfI5UJVZZ7cO71lE/z8=
+gorm.io/driver/mysql v1.1.0/go.mod h1:KdrTanmfLPPyAOeYGyG+UpDys7/7eeWT1zCq+oekYnU=
+gorm.io/gorm v1.21.9/go.mod h1:F+OptMscr0P2F2qU97WT1WimdH9GaQPoDW7AYd5i2Y0=
+gorm.io/gorm v1.21.10/go.mod h1:F+OptMscr0P2F2qU97WT1WimdH9GaQPoDW7AYd5i2Y0=
