@@ -11,8 +11,8 @@ import (
 
 const (
 	myModuleName = "github.com/bitwormhole/starter-gorm-mysql"
-	myModuleVer  = "v0.0.1"
-	myModuleRev  = 1
+	myModuleVer  = "v0.0.3"
+	myModuleRev  = 3
 )
 
 //go:embed src/main/resources
