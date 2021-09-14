@@ -27,10 +27,25 @@ func (inst *MySQLDriver) Accept(cfg *datasource.Configuration) bool {
 	return (name == "mysql")
 }
 
+func (inst *MySQLDriver) prepareForDefaultPort(cfg *datasource.Configuration) {
+	const defport = 3306
+	port := cfg.Port
+	if port < 1 {
+		port = defport
+	}
+	cfg.Port = port
+}
+
 func (inst *MySQLDriver) Open(cfg *datasource.Configuration) (datasource.Source, error) {
 
 	// dsn := "user:pass@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local"
 	//	db, err := gorm.Open(sqlserver.Open(dsn), &gorm.Config{})
+
+	if cfg == nil {
+		return nil, errors.New("config==nil")
+	}
+
+	inst.prepareForDefaultPort(cfg)
 
 	dsnb := &strings.Builder{}
 	dsnb.WriteString(cfg.Username)
