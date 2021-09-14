@@ -1,4 +1,4 @@
-package mysql
+package driver
 
 import (
 	"errors"
@@ -6,14 +6,28 @@ import (
 	"strings"
 
 	"github.com/bitwormhole/starter-gorm/datasource"
+	"github.com/bitwormhole/starter/markup"
 	driver_pkg "gorm.io/driver/mysql"
 	"gorm.io/gorm"
 )
 
-type Driver struct {
+// MySQLDriver 是 mysql 的 starter-gorm 驱动
+type MySQLDriver struct {
+	markup.Component
 }
 
-func (inst *Driver) Open(cfg *datasource.Configuration) (datasource.Source, error) {
+func (inst *MySQLDriver) _Impl() datasource.Driver {
+	return inst
+}
+
+func (inst *MySQLDriver) Accept(cfg *datasource.Configuration) bool {
+	name := cfg.Driver
+	name = strings.TrimSpace(name)
+	name = strings.ToLower(name)
+	return (name == "mysql")
+}
+
+func (inst *MySQLDriver) Open(cfg *datasource.Configuration) (datasource.Source, error) {
 
 	// dsn := "user:pass@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local"
 	//	db, err := gorm.Open(sqlserver.Open(dsn), &gorm.Config{})
@@ -39,8 +53,8 @@ func (inst *Driver) Open(cfg *datasource.Configuration) (datasource.Source, erro
 	gc := &gorm.Config{}
 
 	builder := &datasource.GormDataSourceBuilder{}
-	builder.Config1 = cfg
-	builder.Config2 = gc
+	builder.Config1 = *cfg
+	builder.Config2 = *gc
 	builder.Dialector = dialector
-	return builder.Create()
+	return builder.Open()
 }
