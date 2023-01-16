@@ -1,2 +1,2 @@
 # starter-gorm-mysql
-提供mysql的驱动
+向 starter-gorm 提供 MySQL 驱动
